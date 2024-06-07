@@ -1,0 +1,9 @@
+{
+    "url": "https://www.demoblaze.com/",
+    "loginLink": " #login2",
+    "userName": "#loginusername",
+    "password": "#loginpassword",
+
+    "loginButton": "//button[contains(text(),'Log in')]",
+
+}
