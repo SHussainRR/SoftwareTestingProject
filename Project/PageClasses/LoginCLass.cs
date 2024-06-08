@@ -7,23 +7,19 @@ using Microsoft.Playwright;
 using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace PomModelPlaywright.PageClasses
+namespace Project.PageClasses
 {
     public class LoginClass
     {
         public IPage _page;
         public ILocator loginLinkbtn;
-       public ILocator UserName;
+        public ILocator UserName;
         public ILocator Password;
         public ILocator LoginButton;
 
         public ILocator actualSuccessText;
         string expectedText = "Welcome huss.raza97@gmail.com";
         string actualText = string.Empty;
-
-
-
-
 
 
         public LoginClass (IPage page)
@@ -36,9 +32,6 @@ namespace PomModelPlaywright.PageClasses
 
 
             actualSuccessText = page.Locator("//a[@id='nameofuser']");
-
-
-
 
 
         }
@@ -63,6 +56,7 @@ namespace PomModelPlaywright.PageClasses
             actualText = await actualSuccessText.InnerTextAsync();
             Assert.That(expectedText, Is.EqualTo(actualText));
             Thread.Sleep(1000);
+
 
 
         }

@@ -6,4 +6,7 @@
 
     "loginButton": "//button[contains(text(),'Log in')]",
 
+    "signupUserNAme": "//input[@id='sign-username']",
+    "singupPassword": "//input[@id='sign-password']",
+    "singnupBtn": "//button[contains(text(),'Sign up')]"
 }

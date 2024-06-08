@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using Microsoft.Playwright;
 using Newtonsoft.Json.Linq;
-using PomModelPlaywright.PageClasses;
+using Project.PageClasses;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Project
@@ -14,13 +14,35 @@ namespace Project
         IPlaywright playwright;
         IPage page;
         LoginClass logincLass = null;
+        SignUpClass signupclass = null;
+
         public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("E:\\Working Repositories\\SQA\\Project\\Project\\Json\\data.json"));
 
-        [Test]
+
+        /*[Test]
         public async Task Test1()
         {
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+                });
+                page = await browse.NewPageAsync();
+                logincLass = new LoginClass(page);
+
+                await logincLass.gotoURL(jsonLocatorData["url"].ToString());
+                await logincLass.LoginSucessesful(jsonLocatorData["username"].ToString(), jsonLocatorData["password"].ToString());
+                Thread.Sleep(1000);
+
+            }
+            Assert.Pass();
+        }*/
 
 
+        [Test]
+        public async Task Test2()
+        {
             playwright = await Playwright.CreateAsync();
             {
 
@@ -31,40 +53,22 @@ namespace Project
                     Headless = false,
 
                 });
-                page = await browse.NewPageAsync();                
-                logincLass = new LoginClass(page);
+                page = await browse.NewPageAsync();
+              
+                signupclass = new SignUpClass(page);
 
-                await logincLass.gotoURL(jsonLocatorData["url"].ToString());
-                await logincLass.LoginSucessesful(jsonLocatorData["username"].ToString(), jsonLocatorData["password"].ToString());
-                Thread.Sleep(1000);
+                await signupclass.gotoURL(jsonLocatorData["url"].ToString());
+                await signupclass.singupTask(jsonLocatorData["username"].ToString(), jsonLocatorData["password"].ToString());
+                
+                Thread.Sleep(5000);
+
+
+
+
+
 
             }
             Assert.Pass();
-
         }
-        /*    [Test]
-            public async Task Test2()
-            {
-                playwright = await Playwright.CreateAsync();
-                {
-
-
-                    var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
-                    {
-
-                        Headless = false,
-
-                    });
-                    page = await browse.NewPageAsync();
-
-                    CheckoutAsync = new CheckoutClass(page);
-                    await CheckoutAsync.gotoURL(jsonLocatorData["url"].ToString());
-                    await CheckoutAsync.CheckoutFunction();
-                    //await logincLass.("standard_user", "secret_sauce");
-
-                }
-                Assert.Pass();
-            }
-        }*/
     }
 }

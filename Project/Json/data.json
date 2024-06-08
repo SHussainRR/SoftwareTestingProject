@@ -5,5 +5,9 @@
     "url": "https://www.demoblaze.com/",
     "ExpSuccessText": "Welcome huss.raza97@gmail.com",
 
+    // data for signup
+    "alertMessage": "This user already exist."
+
+
 
 }
