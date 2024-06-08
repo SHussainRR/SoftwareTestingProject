@@ -25,12 +25,15 @@ namespace Project.PageClasses
             signupLinkBtn = page.Locator("//a[@id='signin2']");
             singnupUsername = page.Locator("//input[@id='sign-username']");
             singupPassword = page.Locator("//input[@id='sign-password']");
-            singnupBtn = page.Locator("//button[contains(text(),'Sign up')]");
+            signupBtn = page.Locator("//button[contains(text(),'Sign up')]");
 
 
-           
-
-
+            _dialogMessage = string.Empty; // Initialize _dialogMessage
+            _page.Dialog += async (_, dialog) =>
+            {
+                _dialogMessage = dialog.Message;
+                await dialog.AcceptAsync();  // You can choose to accept or dismiss the dialog
+            };
 
         }
 
@@ -44,9 +47,16 @@ namespace Project.PageClasses
 
             
             await signupBtn.ClickAsync();
-            await Task.Delay(2000);
+            await Task.Delay(1000);
 
-           
+            if (_dialogMessage == "Expected dialog message")
+            {
+                Console.WriteLine("Strings match");
+            }
+
+            Assert.That(_dialogMessage, Is.EqualTo("This user already exist."));
+
+
 
 
 

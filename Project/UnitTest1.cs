@@ -60,7 +60,7 @@ namespace Project
                 await signupclass.gotoURL(jsonLocatorData["url"].ToString());
                 await signupclass.singupTask(jsonLocatorData["username"].ToString(), jsonLocatorData["password"].ToString());
                 
-                Thread.Sleep(5000);
+                Thread.Sleep(2000);
 
 
 
