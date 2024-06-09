@@ -18,6 +18,7 @@ namespace Project
         AboutUsCLass aboutusclass = null;
         OpenUrl openurl = null;
         ContactUs contactus = null;
+        FooterClass footerclass = null;
 
         public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("E:\\Working Repositories\\SQA\\Project\\Project\\Json\\data.json"));
 
@@ -201,6 +202,32 @@ namespace Project
             Assert.Pass();
 
         }
+
+        [Test]
+        public async Task Test7_FooterExists()
+        {
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+                });
+                page = await browse.NewPageAsync();
+                openurl = new OpenUrl(page);
+
+                await openurl.gotoURL(jsonLocatorData["url"].ToString());
+                
+                footerclass= new FooterClass(page);
+
+                footerclass.FooterExists();
+                Thread.Sleep(1000);
+                await page.CloseAsync();
+            }
+            Assert.Pass();
+
+        }
+
+
 
 
 
