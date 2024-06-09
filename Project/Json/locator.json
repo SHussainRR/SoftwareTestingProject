@@ -13,4 +13,5 @@
 
     "aboutUsLinkBtn": "//a[contains(text(),'About us')]",
     "aboutUsTitleText": "//h5[contains(text(),'About us')]"
+
 }

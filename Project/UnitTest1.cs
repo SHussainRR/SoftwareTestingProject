@@ -17,6 +17,7 @@ namespace Project
         SignUpClass signupclass = null;
         AboutUsCLass aboutusclass = null;
         OpenUrl openurl = null;
+        ContactUs contactus = null;
 
         public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("E:\\Working Repositories\\SQA\\Project\\Project\\Json\\data.json"));
 
@@ -154,6 +155,30 @@ namespace Project
             Assert.Pass();
         }
 
+
+        [Test]
+        public async Task Test5_ContactusFormSubmission()
+        {
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+
+                });
+                page = await browse.NewPageAsync();
+
+                openurl = new OpenUrl(page);
+                await openurl.PageExists(jsonLocatorData["url"].ToString());
+
+                contactus = new ContactUs(page);
+
+                await contactus.ContactUsFuncCheck(jsonLocatorData["username"].ToString(), jsonLocatorData["password"].ToString(), jsonLocatorData["contactMessage"].ToString());
+                await page.CloseAsync();
+
+            }
+            Assert.Pass();
+        }
 
 
 

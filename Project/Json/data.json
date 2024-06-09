@@ -9,7 +9,10 @@
     "alertMessage": "This user already exist.",
 
     //Aboutuspage
-    "aboutUsExpectText": "About Us"
+    "aboutUsExpectText": "About Us",
+
+    "contactName": "Usman",
+    "contactMessage": "I am interested in purchasing the HP Envy x360 - 13-bf0047na Convertible OLED Touchscreen Laptop with a Core™ i7 processor. I noticed that it is available in the market but not listed in your store. Could you please arrange to have it available for purchase? "
 
 
 }

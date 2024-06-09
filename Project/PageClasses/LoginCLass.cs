@@ -45,20 +45,16 @@ namespace Project.PageClasses
         {
             Thread.Sleep(1000);
             await loginLinkbtn.ClickAsync();
-
             await UserName.FillAsync(user);
             await Password.FillAsync(passcode);
             await LoginButton.ClickAsync();
-            
+ 
             Thread.Sleep(2000);
-
 
             actualText = await actualSuccessText.InnerTextAsync();
             Thread.Sleep(2000);
             Assert.That(expectedText, Is.EqualTo(actualText));
             Thread.Sleep(1000);
-
-
 
         }
 
