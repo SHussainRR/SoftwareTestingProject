@@ -20,9 +20,33 @@ namespace Project
 
         public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("E:\\Working Repositories\\SQA\\Project\\Project\\Json\\data.json"));
 
+        [Test]
+        public async Task Test0_WebPageExists()
+        {
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+
+                });
+                page = await browse.NewPageAsync();
+
+                openurl = new OpenUrl(page);
+                await openurl.PageExists(jsonLocatorData["url"].ToString());
+
+                await page.CloseAsync();
+
+            }
+            Assert.Pass();
+        }
+
+
+
+
 
         [Test]
-        public async Task LoginInTest()
+        public async Task Test1_LoginInTest()
         {
             playwright = await Playwright.CreateAsync();
             {
@@ -38,17 +62,14 @@ namespace Project
                 await logincLass.LoginSucessesful(jsonLocatorData["username"].ToString(), jsonLocatorData["password"].ToString());
                 Thread.Sleep(1000);
                 await page.CloseAsync();
-
-
-
             }
             Assert.Pass();
-            
+
         }
 
 
         [Test]
-        public async Task SignupTest1()
+        public async Task Test2_SignupTest1()
         {
             playwright = await Playwright.CreateAsync();
             {
@@ -78,7 +99,7 @@ namespace Project
 
 
         [Test]
-        public async Task SignupTestFail()
+        public async Task test3_SignupTestFail()
         {
             playwright = await Playwright.CreateAsync();
             {
@@ -108,7 +129,7 @@ namespace Project
 
 
         [Test]
-        public async Task AboutusPageExists()
+        public async Task Test4_AboutusPageExists()
         {
             playwright = await Playwright.CreateAsync();
             {
@@ -132,6 +153,9 @@ namespace Project
             }
             Assert.Pass();
         }
+
+
+
 
 
     }
