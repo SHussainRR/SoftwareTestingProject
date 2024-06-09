@@ -8,5 +8,9 @@
 
     "signupUserNAme": "//input[@id='sign-username']",
     "singupPassword": "//input[@id='sign-password']",
-    "singnupBtn": "//button[contains(text(),'Sign up')]"
+    "singnupBtn": "//button[contains(text(),'Sign up')]",
+
+
+    "aboutUsLinkBtn": "//a[contains(text(),'About us')]",
+    "aboutUsTitleText": "//h5[contains(text(),'About us')]"
 }

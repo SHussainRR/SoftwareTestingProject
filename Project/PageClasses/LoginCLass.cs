@@ -54,6 +54,7 @@ namespace Project.PageClasses
 
 
             actualText = await actualSuccessText.InnerTextAsync();
+            Thread.Sleep(2000);
             Assert.That(expectedText, Is.EqualTo(actualText));
             Thread.Sleep(1000);
 

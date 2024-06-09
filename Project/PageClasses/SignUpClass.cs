@@ -32,12 +32,13 @@ namespace Project.PageClasses
             _page.Dialog += async (_, dialog) =>
             {
                 _dialogMessage = dialog.Message;
+                Thread.Sleep(1000);
                 await dialog.AcceptAsync();  // You can choose to accept or dismiss the dialog
             };
 
         }
 
-        public async Task singupTask(string user, string passcode)
+        public async Task singupSuccessfull(string user, string passcode)
         {
             
             await signupLinkBtn.ClickAsync();
@@ -56,12 +57,30 @@ namespace Project.PageClasses
 
             Assert.That(_dialogMessage, Is.EqualTo("This user already exist."));
 
+        }
 
 
+        public async Task singupSuccessFail(string user, string passcode)
+        {
+
+            await signupLinkBtn.ClickAsync();
+            await singnupUsername.FillAsync(user);
+            await Task.Delay(2000);
+            await singupPassword.FillAsync(passcode);
 
 
+            await signupBtn.ClickAsync();
+            await Task.Delay(1000);
+
+            if (_dialogMessage == "Expected dialog message")
+            {
+                Console.WriteLine("Strings match");
+            }
+
+            Assert.That(_dialogMessage, Is.EqualTo("Sign up successful."));
 
         }
+
 
         public async Task gotoURL(string home)
         {

@@ -6,8 +6,10 @@
     "ExpSuccessText": "Welcome huss.raza97@gmail.com",
 
     // data for signup
-    "alertMessage": "This user already exist."
+    "alertMessage": "This user already exist.",
 
+    //Aboutuspage
+    "aboutUsExpectText": "About Us"
 
 
 }
