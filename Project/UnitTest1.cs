@@ -180,6 +180,28 @@ namespace Project
             Assert.Pass();
         }
 
+        [Test]
+        public async Task Test6_LoginWithWrongPass()
+        {
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+                });
+                page = await browse.NewPageAsync();
+                logincLass = new LoginClass(page);
+
+                openurl = new OpenUrl(page);
+                await openurl.gotoURL(jsonLocatorData["url"].ToString());
+                await logincLass.LoginWithWrongPassword(jsonLocatorData["username"].ToString(), jsonLocatorData["wrongPassword"].ToString());
+                Thread.Sleep(1000);
+                await page.CloseAsync();
+            }
+            Assert.Pass();
+
+        }
+
 
 
 

@@ -20,6 +20,7 @@ namespace Project.PageClasses
         public ILocator actualSuccessText;
         string expectedText = "Welcome huss.raza97@gmail.com";
         string actualText = string.Empty;
+        private string _dialogMessage;
 
 
         public LoginClass (IPage page)
@@ -29,9 +30,16 @@ namespace Project.PageClasses
             UserName = page.Locator("#loginusername");
             Password = page.Locator("#loginpassword");
             LoginButton = page.Locator("//button[contains(text(),'Log in')]");
-
-
             actualSuccessText = page.Locator("//a[@id='nameofuser']");
+
+            _dialogMessage = string.Empty; 
+            _page.Dialog += async (_, dialog) =>
+            {
+                _dialogMessage = dialog.Message;
+                Thread.Sleep(1000);
+                await dialog.AcceptAsync();
+            };
+
 
 
         }
@@ -54,6 +62,24 @@ namespace Project.PageClasses
             actualText = await actualSuccessText.InnerTextAsync();
             Thread.Sleep(2000);
             Assert.That(expectedText, Is.EqualTo(actualText));
+            Thread.Sleep(1000);
+
+        }
+
+
+        public async Task LoginWithWrongPassword(string user, string passcode)
+        {
+            Thread.Sleep(1000);
+            await loginLinkbtn.ClickAsync();
+            await UserName.FillAsync(user);
+            await Password.FillAsync(passcode);
+            await LoginButton.ClickAsync();
+
+            Thread.Sleep(2000);
+
+            actualText = await actualSuccessText.InnerTextAsync();
+            Thread.Sleep(2000);
+            Assert.That(_dialogMessage, Is.EqualTo("Wrong password."));
             Thread.Sleep(1000);
 
         }
