@@ -20,7 +20,7 @@ namespace Project
         ContactUs contactus = null;
         FooterClass footerclass = null;
 
-        public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("E:\\Working Repositories\\SQA\\Project\\Project\\Json\\data.json"));
+        public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("D:\\Hussain Working Repos\\Maj\\Project\\Json\\data.json"));
 
         [Test]
         public async Task Test0_WebPageExists()
@@ -219,7 +219,7 @@ namespace Project
                 
                 footerclass= new FooterClass(page);
 
-                footerclass.FooterExists();
+                await footerclass.FooterExists();
                 Thread.Sleep(1000);
                 await page.CloseAsync();
             }
