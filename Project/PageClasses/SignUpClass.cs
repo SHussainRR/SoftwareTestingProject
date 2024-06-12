@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Project.PageClasses
 {
-    public class SignUpClass
+    public class SignUpClass: CommonClass
     {
         public IPage _page;
         public ILocator signupLinkBtn;
@@ -19,7 +19,7 @@ namespace Project.PageClasses
         public ILocator signupBtn;
         private string _dialogMessage;
 
-        public SignUpClass(IPage page)
+        public SignUpClass(IPage page) : base(page)
         {
             _page = page;
             signupLinkBtn = page.Locator("//a[@id='signin2']");
@@ -82,11 +82,7 @@ namespace Project.PageClasses
         }
 
 
-        public async Task gotoURL(string home)
-        {
-            await _page.GotoAsync(home);
-        }
-
+       
 
 
 

@@ -20,11 +20,16 @@ namespace Project
         ContactUs contactus = null;
         FooterClass footerclass = null;
 
-        public JObject jsonLocatorData = JObject.Parse(File.ReadAllText("D:\\Hussain Working Repos\\Maj\\Project\\Json\\data.json"));
+
+        
+
+        public JObject jsonLocatorData = JObject.Parse(File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json\\data.json")));
 
         [Test]
         public async Task Test0_WebPageExists()
         {
+
+            
             playwright = await Playwright.CreateAsync();
             {
                 var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
@@ -228,9 +233,64 @@ namespace Project
         }
 
 
+        [Test]
+        public async Task Test8_AddCart()
+        {
+
+
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+                });
+                page = await browse.NewPageAsync();
+
+                var addCart = new AddToCart(page, jsonLocatorData);
+                await addCart.gotoURL(jsonLocatorData["url"].ToString());
+                var response = await addCart.TaskAddTocart();
 
 
 
+                Assert.AreEqual(response, "Products");
+
+                Thread.Sleep(1000);
+                await page.CloseAsync();
+
+
+            }
+        }
+
+        [Test]
+        public async Task Test9_PlaceOrderClick()
+        {
+
+
+            playwright = await Playwright.CreateAsync();
+            {
+                var browse = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+                });
+                page = await browse.NewPageAsync();
+
+                var addCart = new AddToCart(page, jsonLocatorData);
+                await addCart.gotoURL(jsonLocatorData["url"].ToString());
+                //for clicking cart
+                _= await addCart.TaskAddTocart();
+                var response = await addCart.PlaceOrderPage();
+
+
+
+                Assert.AreEqual(response, "Place order");
+
+                Thread.Sleep(1000);
+                await page.CloseAsync();
+
+
+            }
+
+        }
 
     }
 }

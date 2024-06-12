@@ -1,20 +1,29 @@
 {
-    //Data for login 
-    "username": "huss.raza97@gmail.com",
-    "password": "hussain1234",
-    "url": "https://www.demoblaze.com/",
-    "ExpSuccessText": "Welcome huss.raza97@gmail.com",
+  //Data for login 
+  "username": "huss.raza97@gmail.com",
+  "password": "hussain1234",
+  "url": "https://www.demoblaze.com/",
+  "ExpSuccessText": "Welcome huss.raza97@gmail.com",
 
-    // data for signup
-    "alertMessage": "This user already exist.",
+  // data for signup
+  "alertMessage": "This user already exist.",
 
-    //Aboutuspage
-    "aboutUsExpectText": "About Us",
+  //Aboutuspage
+  "aboutUsExpectText": "About Us",
 
-    "contactName": "Usman",
-    "contactMessage": "I am interested in purchasing the HP Envy x360 - 13-bf0047na Convertible OLED Touchscreen Laptop with a Core™ i7 processor. I noticed that it is available in the market but not listed in your store. Could you please arrange to have it available for purchase? ",
+  "contactName": "Usman",
+  "contactMessage": "I am interested in purchasing the HP Envy x360 - 13-bf0047na Convertible OLED Touchscreen Laptop with a Core™ i7 processor. I noticed that it is available in the market but not listed in your store. Could you please arrange to have it available for purchase? ",
 
-    "wrongPassword": "usman1234",
+  "wrongPassword": "usman1234",
+
+
+  "cartBtnID": "//a[normalize-space()='Cart']/..//a[normalize-space()='Cart']",
+
+  "cartPageHeading": "//h2[normalize-space()='Products']/..//h2[normalize-space()='Products']",
+
+  "PlaceOrder": "//button[normalize-space()='Place Order']",
+
+  "PlaceOrderModalText": "[id='orderModalLabel']"
 
 
 

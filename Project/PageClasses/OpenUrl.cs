@@ -8,23 +8,18 @@ using Microsoft.Playwright;
 
 namespace Project.PageClasses
 {
-    public class OpenUrl
+    public class OpenUrl: CommonClass
     {
 
         public IPage _page;
         public ILocator aboutUsLinkBtn;
         public ILocator aboutUsTitleText;
 
-        public OpenUrl(IPage page)
+        public OpenUrl(IPage page):base(page)
         {
             _page = page;
         }
 
-
-        public async Task gotoURL(string home)
-        {
-            await _page.GotoAsync(home);
-        }
 
         public async Task PageExists(string home)
         {
