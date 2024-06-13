@@ -23,8 +23,22 @@
 
   "PlaceOrder": "//button[normalize-space()='Place Order']",
 
-  "PlaceOrderModalText": "[id='orderModalLabel']"
+  "PlaceOrderModalText": "[id='orderModalLabel']",
 
+  "Formname": "[id='name']",
+  "Formcountry": "[id='country']",
+  "Formcity": "[id='city']",
+  "Formcard": "[id='card']",
+  "Formmonth": "[id='month']",
+  "Formyear": "[id='year']",
+  "btnPurchase": "//button[normalize-space()='Purchase']",
+  "btnClose": "//div[@id='orderModal']//button[@type='button'][normalize-space()='Close']",
+
+
+  "thankyouTxt": "//h2[normalize-space()='Thank you for your purchase!']",
+
+  "okBTn": "//button[normalize-space()='OK']",
+  "indexCategory": "[id='cat']"
 
 
 }
