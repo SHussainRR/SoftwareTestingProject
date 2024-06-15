@@ -5,9 +5,13 @@ using Microsoft.Playwright;
 using Newtonsoft.Json.Linq;
 using Project.PageClasses;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Allure.NUnit;
+using NUnit.Framework;
 
 namespace Project
 {
+    [TestFixture]
+    [AllureNUnit]
     public class Tests
     {
 
