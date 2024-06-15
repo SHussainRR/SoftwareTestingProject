@@ -124,6 +124,7 @@ namespace Project.PageClasses
             
 
 
+            Thread.Sleep(10000);
             return await _page.Locator(_jObject["indexCategory"].ToString()).InnerTextAsync();
 
             //h2[normalize-space()='Thank you for your purchase!']

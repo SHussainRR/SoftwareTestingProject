@@ -25,12 +25,7 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
-<<<<<<< Updated upstream
-=======
   <ItemGroup>
-    <None Update="allureConfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Json\data.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -39,5 +34,4 @@
     </None>
   </ItemGroup>
 
->>>>>>> Stashed changes
 </Project>

@@ -7,14 +7,14 @@ using Microsoft.Playwright;
 
 namespace Project.PageClasses
 {
-    public class AboutUsCLass
+    public class AboutUsCLass:CommonClass
     {
 
         public IPage _page;
         public ILocator aboutUsLinkBtn;
         public ILocator aboutUsTitleText;
 
-        public AboutUsCLass(IPage page)
+        public AboutUsCLass(IPage page):base(page)  
         {
             _page = page;
             aboutUsLinkBtn = page.Locator("//a[contains(text(),'About us')]");
@@ -30,11 +30,6 @@ namespace Project.PageClasses
 
         }
 
-
-        public async Task gotoURL(string home)
-        {
-            await _page.GotoAsync(home);
-        }
 
 
 
