@@ -57,10 +57,10 @@ namespace Project.PageClasses
             await Password.FillAsync(passcode);
             await LoginButton.ClickAsync();
  
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
 
             actualText = await actualSuccessText.InnerTextAsync();
-            Thread.Sleep(2000);
+            Thread.Sleep(4000);
             Assert.That(expectedText, Is.EqualTo(actualText));
             Thread.Sleep(1000);
 
